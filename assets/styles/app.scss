@@ -1,0 +1,47 @@
+// assets/styles/global.scss
+
+// customize some Bootstrap variables
+$theme-colors: (
+  "primary": #F76C6C,
+  "secondary": #4C535E,
+  "white": #F3EDED,
+  "black" : #707070
+);
+
+
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    background-color: var(--bs-primary);
+}
+
+.navbar{
+    background-color: var(--bs-secondary);
+    color:var(--bs-white);
+}
+
+
+#navbarSupportedContent form{
+    width: 15vw;
+    display: flex;
+}
+
+#navbarSupportedContent{
+    justify-content: space-around;
+}
+
+#navbarSupportedContent ul{
+    width: 50vw;
+    justify-content: space-around;
+}
+
+.nav-link{
+    color:var(--bs-white) !important;
+}
+
+.navbar-brand{
+    width: 5VW;
+    margin: 0 50px;
+}
