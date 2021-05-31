@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ProgrammRepository;
+use App\Repository\ProgramRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProgrammRepository::class)
+ * @ORM\Entity(repositoryClass=ProgramRepository::class)
  */
-class Programm
+class Program
 {
     /**
      * @ORM\Id

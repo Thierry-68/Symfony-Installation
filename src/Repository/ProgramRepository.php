@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Programm;
+use App\Entity\Program;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Programm|null find($id, $lockMode = null, $lockVersion = null)
- * @method Programm|null findOneBy(array $criteria, array $orderBy = null)
- * @method Programm[]    findAll()
- * @method Programm[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Program|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Program|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Program[]    findAll()
+ * @method Program[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProgrammRepository extends ServiceEntityRepository
+class ProgramRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Programm::class);
+        parent::__construct($registry, Program::class);
     }
 
     // /**
-    //  * @return Programm[] Returns an array of Programm objects
+    //  * @return Program[] Returns an array of Program objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ProgrammRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Programm
+    public function findOneBySomeField($value): ?Program
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')
