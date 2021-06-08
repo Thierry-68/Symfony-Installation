@@ -9,6 +9,22 @@ $theme-colors: (
 );
 
 
+.media-body{
+    width: 50vw;
+    margin:auto;
+}
+
+ul.episode{
+    border:#333 solid 1px;
+}
+
+ul.episode span{
+    font-weight: bold;
+}
+
+ul.episode li{
+    margin-left: 50px;
+}
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
