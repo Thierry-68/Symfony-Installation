@@ -6,7 +6,7 @@
     <h1>Nouvelle serie:</h1>
   
     {{form_start(form)}}
-    {{ form_widget(form)}}
+    {{ form_widget(form, {'attr': {'novalidate': 'novalidate'}}) }}
      <input type="submit" value="Ajouter une serie">
     {{ form_end(form)}}
 
