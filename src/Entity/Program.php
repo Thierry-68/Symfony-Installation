@@ -53,7 +53,7 @@ class Program
     private $seasons;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Actor::class, mappedBy="programs")
+     * @ORM\ManyToMany(targetEntity="Actor", mappedBy="programs")
      */
     private $actors;
 
@@ -62,7 +62,6 @@ class Program
         $this->seasons = new ArrayCollection();
         $this->actors = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -161,7 +160,6 @@ class Program
             $this->actors[] = $actor;
             $actor->addProgram($this);
         }
-
         return $this;
     }
 
