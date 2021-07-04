@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Form\ProgramType;
-use Doctrine\ORM\Mapping\Id;
+use App\service\Slugify;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -40,9 +40,11 @@ class ProgramController extends AbstractController
      * @return Response A response instance
      */
 
-    public function new (Request $request):Response
+    public function new (Request $request,Slugify $slugify):Response
     {         
         $program=new Program();
+        $slug = $slugify->generate($program->getTitle());
+        $program->setSlug($slug);
         $form=$this->createForm(ProgramType::class,$program);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
