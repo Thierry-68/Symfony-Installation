@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Program;
+use App\Service\Slugify;
 
 class ProgramFixture extends Fixture implements DependentFixtureInterface
 {
@@ -17,14 +18,22 @@ class ProgramFixture extends Fixture implements DependentFixtureInterface
         "Avengers: Endgame"
     ];
 
-    public function load(ObjectManager $manager)
+    private Slugify $slugify;
+
+    public function __construct(Slugify $slugify)
     {
+        $this->slugify=$slugify;
+    }
+
+    public function load(ObjectManager $manager)
+    {        
         foreach(self::PROGRAMS as $key =>$programName)
         {
             $program = new Program();       
             $program->setTitle($programName);
+            $slug=$this->slugify->generate($programName);
             $program->setSummary('Des zombies envahissent la terre');     
-            $program->setSlug("");       
+            $program->setSlug($slug);       
             for($i=0;$i<count(ActorFixtures::ACTORS); $i++){
                 $program->addActor($this->getReference('actor_'.$i));                    
             }    
