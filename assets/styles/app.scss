@@ -1,4 +1,6 @@
 // assets/styles/global.scss
+// the ~ allows you to reference things in node_modules
+
 
 // customize some Bootstrap variables
 $theme-colors: (
@@ -8,6 +10,7 @@ $theme-colors: (
   "black" : #707070
 );
 
+@import "~bootstrap/scss/bootstrap";
 
 .media-body{
     width: 50vw;
@@ -26,8 +29,6 @@ ul.episode li{
     margin-left: 50px;
 }
 
-// the ~ allows you to reference things in node_modules
-@import "~bootstrap/scss/bootstrap";
 
 body{
     background-color: var(--bs-primary);

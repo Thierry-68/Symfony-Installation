@@ -15,8 +15,8 @@
 					Programme
 					<a/>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="{{path("program_index")}}">Liste</a>
-					<a class="dropdown-item" href="{{path("program_new")}}">Ajouter</a>			
+						<a class="dropdown-item" href="{{path("program_index")}}">Liste</a>
+						<a class="dropdown-item" href="{{path("program_new")}}">Ajouter</a>
 					</div>
 				</li>
 			</li>
@@ -43,7 +43,14 @@
 				</div>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Deconnexion</a>
+				{% if app.user %}
+					{{ app.user.email }}
+					<a href="{{ path('app_logout') }}">
+						Se déconnecter</a>
+				{% else %}
+					<a href="{{ path('app_login') }}">
+						Se connecter</a>
+				{% endif %}
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">John Doe</a>

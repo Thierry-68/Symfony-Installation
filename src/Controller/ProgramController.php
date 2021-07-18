@@ -51,6 +51,8 @@ class ProgramController extends AbstractController
             $program->setSlug($slug);
             $entityManager->persist($program);
             $entityManager->flush();
+            $message='Bravo ! Programme '.$program->getTitle().' ajouté avec succés !';
+            $this->addFlash("success",$message);
            // return $this->redirectToRoute('program_index');
         }
 

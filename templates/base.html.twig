@@ -13,13 +13,20 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
         </head>
-    <body>
-        <header>
-         {% include "_navbar.html.twig" %}
-        </header> 
-        <section class="container">
-        {% block body %}{% endblock %}
-        </section> 
-        
-    </body>
+        <body>
+            <header>
+                {% include "_navbar.html.twig" %}
+            </header>
+            <section class="message-alert">
+                {% for category, messages in app.flashes %}
+                    {%for message in messages %}
+                        <div class="alert alert-success-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% block body %}{% endblock %}
+            </section>
+            <section class="container"></section>
+        </body>
 </html>
